@@ -1,28 +1,27 @@
-package com.example.JobSearch.Jobs;
+package com.example.JobSearch.Review;
 
 import com.example.JobSearch.Company.Company;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-//@Table(name= "job_table")
-public class Job {
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String description;
-    private String location;
 
+    @JsonIgnore
     @ManyToOne
     private Company company;
 
-    public Job(){} //JPA needs to create object for entity class
+    public Review(){} //JPA needs to create object for entity class
 
-    public Job(Integer id, String title, String description, String location, Company company) {
+    public Review(Integer id, String title, String description, Company company) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.location = location;
         this.company = company;
     }
 
@@ -48,14 +47,6 @@ public class Job {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public Company getCompany() {

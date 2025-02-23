@@ -1,0 +1,19 @@
+meta {
+  name: PUT reviews
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/review/1/update/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "poo",
+    "description": "llo",
+    "company": 1
+  }
+}

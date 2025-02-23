@@ -1,6 +1,7 @@
 package com.example.JobSearch.Company;
 
 import com.example.JobSearch.Jobs.Job;
+import com.example.JobSearch.Review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -19,7 +20,8 @@ public class Company {
     @OneToMany(mappedBy = "company") //mapped by company defined in Job class;
     private List<Job> jobs;
 
-    //private List<Review> reviews;
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
 
     public Company(){} //JPA needs to create object for entity class
@@ -32,7 +34,7 @@ public class Company {
         this.jobs = jobs;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -71,4 +73,13 @@ public class Company {
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
     }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
 }

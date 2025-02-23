@@ -1,11 +1,11 @@
 meta {
-  name: POST company
+  name: POST reviews
   type: http
   seq: 2
 }
 
 post {
-  url: http://localhost:8080/company/createCompany
+  url: http://localhost:8080/review/1/createReview
   body: json
   auth: none
 }
@@ -14,7 +14,6 @@ body:json {
   {
     "title": "llo",
     "description": "llo",
-    "location": "hyderabad",
-    "company": "lloy"
+    "company": 1
   }
 }

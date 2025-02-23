@@ -21,7 +21,7 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
-    // GET ALL JOBS
+    // GET ALL COMPANY
     @GetMapping("/findAll")
     public ResponseEntity<List<Company>> findAll() {
         try {
@@ -33,7 +33,7 @@ public class CompanyController {
         }
     }
 
-    // CREATE JOB
+    // CREATE COMPANY
     @PostMapping("/createCompany")
     public ResponseEntity<String> createCompany(@RequestBody Company company) {
         try {
@@ -45,7 +45,7 @@ public class CompanyController {
         }
     }
 
-    // GET JOB BY ID
+    // GET COMPANY BY ID
     @GetMapping("/find/{id}")
     public ResponseEntity<?> getCompanyByID(@PathVariable Integer id) {
         try {
@@ -62,7 +62,7 @@ public class CompanyController {
         }
     }
 
-    // UPDATE JOB BY ID
+    // UPDATE COMPANY BY ID
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updateCompanyById(@PathVariable Integer id, @RequestBody Company updatedCompany) {
         try {
