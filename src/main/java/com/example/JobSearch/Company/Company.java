@@ -1,12 +1,13 @@
-package com.example.JobSearch.Jobs;
+package com.example.JobSearch.Company;
 
-import com.example.JobSearch.Company.Company;
+import com.example.JobSearch.Jobs.Job;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-//@Table(name= "job_table")
-public class Job {
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -14,17 +15,21 @@ public class Job {
     private String description;
     private String location;
 
-    @ManyToOne
-    private Company company;
+    @JsonIgnore
+    @OneToMany(mappedBy = "company") //mapped by company defined in Job class;
+    private List<Job> jobs;
 
-    public Job(){} //JPA needs to create object for entity class
+    //private List<Review> reviews;
 
-    public Job(Integer id, String title, String description, String location, Company company) {
+
+    public Company(){} //JPA needs to create object for entity class
+
+    public Company(Integer id, String title, String description, String location, List<Job> jobs) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.location = location;
-        this.company = company;
+        this.jobs = jobs;
     }
 
     public int getId() {
@@ -59,11 +64,11 @@ public class Job {
         this.location = location;
     }
 
-    public Company getCompany() {
-        return company;
+    public List<Job> getJobs() {
+        return jobs;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
     }
 }
