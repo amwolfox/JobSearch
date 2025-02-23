@@ -1,12 +1,20 @@
 package com.example.JobSearch.Jobs;
 
-public class Job {
-    int id;
-    String title;
-    String description;
-    String location;
+import jakarta.persistence.*;
 
-    public Job(int id, String title, String description, String location) {
+@Entity
+//@Table(name= "job_table")
+public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String title;
+    private String description;
+    private String location;
+
+    public Job(){} //JPA needs to create object for entity class
+
+    public Job(Integer id, String title, String description, String location) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -17,7 +25,7 @@ public class Job {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

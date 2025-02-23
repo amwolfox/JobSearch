@@ -1,0 +1,19 @@
+meta {
+  name: POST JOBS
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/jobs/createJob
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "java",
+    "description": "go jobs",
+    "location": "hyderabad"
+  }
+}

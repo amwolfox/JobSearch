@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "JobSearch",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

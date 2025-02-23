@@ -1,0 +1,20 @@
+meta {
+  name: DELETE JOB
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/jobs/delete/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 2,
+    "title": "PYTHON",
+    "description": "go jobs",
+    "location": "hyderabad"
+  }
+}
